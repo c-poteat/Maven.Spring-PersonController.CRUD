@@ -17,13 +17,17 @@ import javax.persistence.Id;
         public Person() {
         }
 
+        public Person(String firstName, String lastName) {
+            this(null,firstName, lastName);
+        }
+
         public Person(Integer id, String firstName, String lastName) {
             this.id = id;
             this.firstName = firstName;
             this.lastName = lastName;
         }
 
-        public int getId() {
+        public Integer getId() {
             return id;
         }
 

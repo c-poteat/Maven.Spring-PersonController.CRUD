@@ -39,8 +39,10 @@ public class PersonController {
 
     @RequestMapping(value = "/people/{id}", method = RequestMethod.PUT)
     public Person updatePerson(@PathVariable Integer id, @RequestBody Person p) {
-        p = personRepository.findOne(id);
-        return personRepository.save(p);
+        Person newPerson = personRepository.findOne(id);
+        newPerson.setFirstName(p.getFirstName());
+        newPerson.setLastName(p.getLastName());
+        return personRepository.save(newPerson);
     }
 
     @RequestMapping(value = "/people/{id}", method = RequestMethod.DELETE)
